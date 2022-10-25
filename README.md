@@ -2,5 +2,14 @@
 
 ## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+Utiliser Live Server pour démarrer le projet :
 
+- soit avec l'extension VS Code
+- soit avec la commande :
+
+```bash
+
+npm i -g live-server
+live-server
+
+```
