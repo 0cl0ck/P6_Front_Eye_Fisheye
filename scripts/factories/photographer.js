@@ -8,15 +8,21 @@ export function photographerFactory(data) {
     const header = document.querySelector(".photograph-header");
     const h1 = document.createElement("h1");
     const p = document.createElement("p");
-    const p2 = document.createElement("p");
+    const p1 = document.createElement("p");
     const img = document.createElement("img");
+    const div = document.createElement("div");
+    h1.setAttribute("id", "photograph-header-h1");
+    div.setAttribute("class", "photograph-header-text");
     img.setAttribute("src", picture);
+    p.setAttribute("class", "p");
+    p1.setAttribute("class", "p1");
     h1.textContent = name;
     p.textContent = city + ", " + country;
-    p2.textContent = tagline;
-    header.appendChild(h1);
-    header.appendChild(p);
-    header.appendChild(p2);
+    p1.textContent = tagline;
+    div.appendChild(h1);
+    div.appendChild(p);
+    div.appendChild(p1);
+    header.appendChild(div);
     header.appendChild(img);
 
     return header;
