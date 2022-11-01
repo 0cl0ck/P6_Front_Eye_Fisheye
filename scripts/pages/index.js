@@ -1,27 +1,3 @@
-// Penser à remplacer par les données récupérées dans le json
-
-//   const photographers = fetch("data/photographers.json")
-//     .then(function (response) {
-//       if (response.ok) {
-//         console.log(response);
-//         return response.json();
-//       }
-//     })
-//     .then(function (photographersData) {
-//       return photographersData.photographers;
-//     })
-//     .catch(function (response) {
-//       console.error(`Retour du serveur : `, response.status);
-//     });
-//   //et bien retourner le tableau photographers seulement une fois
-//   return {
-//     photographers: [...photographers, ...photographers, ...photographers],
-//   };
-// }
-// function (photographersData) {
-
-// }
-
 import { photographerFactory } from "../factories/photographer.js";
 
 async function getPhotographers() {

@@ -2,6 +2,7 @@ export function mediaFactory(data, photographer) {
   function photographMedia() {
     const { id, photographerId, title, likes, date, price, image } = data;
     const name = photographer.name;
+    console.log(image);
 
     const firstName = prenom(name);
     console.log(firstName);
@@ -16,7 +17,9 @@ export function mediaFactory(data, photographer) {
     const imgLikes = document.createElement("img");
     const pic = `assets/media/${firstName}/${image}`;
     img.setAttribute("src", pic);
-    return;
+    article.appendChild(img);
+    main.appendChild(article);
+    return article;
   }
   return { photographMedia };
 }
