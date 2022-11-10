@@ -12,9 +12,8 @@ async function getMedia(data) {
   const searchParams = new URLSearchParams(URL);
   const id = parseInt(searchParams.get("id"));
   const medias = data.media;
-  console.log(medias);
   const result = medias.filter((media) => media.photographerId === id);
-  console.log(result);
+
   return result;
 }
 
@@ -35,10 +34,15 @@ async function displayPhotographer(photographer) {
 }
 
 async function displayMedia(media, photographer) {
-  const photographMediaDiv = document.getElementById("main");
-  const photographMedia = mediaFactory(media, photographer);
-  const photographerMedia = photographMedia.photographMedia();
-  photographMediaDiv.appendChild(photographerMedia);
+  const main = document.getElementById("main");
+  const photographMediaDiv = document.createElement("div");
+  photographMediaDiv.setAttribute("class", "media-photos");
+  main.appendChild(photographMediaDiv);
+  media.forEach((media) => {
+    const photographMedia = mediaFactory(media, photographer);
+    const photographerMedia = photographMedia.photographMedia();
+    photographMediaDiv.appendChild(photographerMedia);
+  });
 }
 
 async function init() {
@@ -46,7 +50,6 @@ async function init() {
   const photographer = await getPhotographer(data);
   displayPhotographer(photographer);
   const media = await getMedia(data);
-  console.log(media);
   displayMedia(media, photographer);
 }
 init();

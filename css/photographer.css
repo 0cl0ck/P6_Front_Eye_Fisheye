@@ -1,3 +1,4 @@
+/*HEADER*/
 #contact_modal {
   display: none;
 }
@@ -36,6 +37,57 @@
 .photograph-header h1 {
   display: flex;
 }
+
+/*MEDIA*/
+.media-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+  margin-top: 100px;
+}
+
+.media-photos article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.media-photos article p {
+  color: #901c1c;
+}
+
+.media-photos article img {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+}
+
+.media-photos article video {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+}
+
+.title-likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-likes i {
+  color: #901c1c;
+}
+
+.icon-likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/*CONTACT*/
 .contact_button {
   font-size: 20px;
   font-weight: bold;
