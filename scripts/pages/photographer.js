@@ -53,7 +53,7 @@ async function displayMedia(medias, photographer) {
   });
 }
 
-function getTotalLikesAndPrice(medias, photographer) {
+function getTotalLikesAndPrice(medias) {
   let totalLikes = 0;
   medias.forEach((media) => {
     totalLikes += media.likes;
@@ -64,12 +64,14 @@ function getTotalLikesAndPrice(medias, photographer) {
 function displayTotalLikes(totalLikes, photographer) {
   //DOM Elements
   const price = photographer.price;
-  console.log(price);
   const insert = document.createElement("div");
   const divTotalLikes = document.createElement("div");
   const divPrice = document.createElement("div");
+  //Attribution de classes
   insert.setAttribute("class", "total-box");
-  divPrice.innerText = price + "€/jour";
+  divTotalLikes.setAttribute("class", "total-likes");
+  divPrice.setAttribute("class", "price");
+  divPrice.innerText = price + "€ / jour";
   divTotalLikes.innerHTML =
     totalLikes + `<i class="fa-sharp fa-solid fa-heart"></i>`;
   insert.appendChild(divTotalLikes);

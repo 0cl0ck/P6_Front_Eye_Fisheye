@@ -6,7 +6,7 @@
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
+  margin: 0 75px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 70px;
-  margin-top: 100px;
+  margin: 50px;
 }
 
 .media-photos article {
@@ -92,7 +92,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 340px;
+  width: 320px;
   height: 30px;
   padding: 10px;
   margin-right: 2rem;
@@ -101,6 +101,18 @@
   background: #db8876;
   display: flex;
   justify-content: space-around;
+  font-weight: 600;
+}
+
+.total-likes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.price {
+  display: flex;
+  align-items: center;
 }
 
 /*CONTACT*/
