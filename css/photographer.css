@@ -37,7 +37,7 @@
 .photograph-header h1 {
   display: flex;
 }
-
+/* MAIN */
 /*MEDIA*/
 .media-photos {
   display: grid;
@@ -85,6 +85,12 @@
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+}
+
+/*TOTAL & PRICE*/
+.total-box {
+  background: #db8876;
+  border-radius: 5px;
 }
 
 /*CONTACT*/

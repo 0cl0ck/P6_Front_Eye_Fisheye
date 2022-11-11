@@ -1,8 +1,11 @@
+import { triggerLightbox } from "../utils/lightbox.js";
+
 export function mediaFactory(data, photographer) {
   function photographMedia() {
     //DOM Datas
     const { id, photographerId, title, likes, date, price, image, video } =
       data;
+
     const name = photographer.name;
     const firstName = prenom(name);
     //DOM Elements
@@ -15,19 +18,6 @@ export function mediaFactory(data, photographer) {
     const likesAndIcon = document.createElement("div");
     const likesIcon = document.createElement("i");
     const likesNumber = document.createElement("p");
-    //DOM Total likes & Price
-    const divLikesAndPrice = document.createElement("div");
-
-    // const totalLikes = { ...likes };
-    // console.log(totalLikes);
-    // // const array = [{ likes }];
-    // // console.log(likes);
-    // // console.log(likes);
-
-    // let totalCounter = document.querySelector(".totalCounter");
-    // total = 0;
-    // images.forEach((image) => total += Number(image.likes));
-    // totalCounter.value = total ;
 
     //DOM Medias
     const img = document.createElement("img");
@@ -38,9 +28,12 @@ export function mediaFactory(data, photographer) {
     //Process image or video
     if (image) {
       img.setAttribute("src", sourceImg);
+      img.addEventListener("click", triggerLightbox);
       article.appendChild(img);
     } else {
       vid.setAttribute("src", sourceVid);
+      //vid.setAttribute("controls", "");
+      vid.addEventListener("click", triggerLightbox);
       article.appendChild(vid);
     }
 
@@ -58,10 +51,6 @@ export function mediaFactory(data, photographer) {
     divTitleAndLikes.appendChild(titles);
     divTitleAndLikes.appendChild(likesAndIcon);
     article.appendChild(divTitleAndLikes);
-
-    //Creation de l'encart
-
-    main.appendChild(divLikesAndPrice);
 
     return article;
   }
