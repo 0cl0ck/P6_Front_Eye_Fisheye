@@ -89,8 +89,18 @@
 
 /*TOTAL & PRICE*/
 .total-box {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 340px;
+  height: 30px;
+  padding: 10px;
+  margin-right: 2rem;
+  border-radius: 5px 5px 0px 0px;
+  margin-top: 0;
   background: #db8876;
-  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
 }
 
 /*CONTACT*/
