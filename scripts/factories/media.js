@@ -41,7 +41,7 @@ export function mediaFactory(data, photographer) {
     likesNumber.setAttribute("class", "likes");
     divTitleAndLikes.setAttribute("class", "title-likes");
     likesAndIcon.setAttribute("class", "icon-likes");
-    likesIcon.setAttribute("class", "fa-sharp fa-solid fa-heart");
+    likesIcon.setAttribute("class", "fa-sharp fa-solid fa-heart icon");
     titles.innerText = title;
     likesNumber.innerText = likes;
 

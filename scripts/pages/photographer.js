@@ -26,6 +26,11 @@ async function getMedia(data) {
   return result;
 }
 
+/**
+ * Retrieves a specific photographer from URL
+ *
+ * @return Object
+ */
 async function getPhotographer(data) {
   const URL = window.location.search;
   const searchParams = new URLSearchParams(URL);
@@ -34,6 +39,12 @@ async function getPhotographer(data) {
   const result = photographers.filter((photographer) => photographer.id === id);
   return result[0];
 }
+
+/**
+ * Displays photographer
+ *
+ * @return
+ */
 async function displayPhotographer(photographer) {
   const photographHeaderDiv = document.getElementById("main");
   const photographModel = photographerFactory(photographer);
@@ -41,6 +52,11 @@ async function displayPhotographer(photographer) {
   photographHeaderDiv.appendChild(photographerHeader);
 }
 
+/**
+ * Displays media
+ *
+ * @return Array<media>
+ */
 async function displayMedia(medias, photographer) {
   const main = document.getElementById("main");
   const photographMediaDiv = document.createElement("div");
@@ -53,6 +69,11 @@ async function displayMedia(medias, photographer) {
   });
 }
 
+/**
+ * Calculates the total number of likes, Retrieves the price from medias
+ *
+ * @return totalLikes
+ */
 function getTotalLikesAndPrice(medias) {
   let totalLikes = 0;
   medias.forEach((media) => {
@@ -61,38 +82,67 @@ function getTotalLikesAndPrice(medias) {
   return totalLikes;
 }
 
-function displayTotalLikes(totalLikes, photographer) {
+/**
+ * Displays the price and the total number of likes
+ *
+ * @return insert
+ */
+
+function displayTotalLikesAndPrice(totalLikes, photographer) {
   //DOM Elements
   const price = photographer.price;
   const insert = document.createElement("div");
+  const divTotalLikesAndIcon = document.createElement("div");
   const divTotalLikes = document.createElement("div");
+  const divTotalLikesIcon = document.createElement("i");
   const divPrice = document.createElement("div");
   //Attribution de classes
   insert.setAttribute("class", "total-box");
-  divTotalLikes.setAttribute("class", "total-likes");
   divPrice.setAttribute("class", "price");
   divPrice.innerText = price + "€ / jour";
-  divTotalLikes.innerHTML =
-    totalLikes + `<i class="fa-sharp fa-solid fa-heart"></i>`;
-  insert.appendChild(divTotalLikes);
+  divTotalLikesIcon.setAttribute("class", "fa-sharp fa-solid fa-heart");
+  divTotalLikesAndIcon.setAttribute("class", "total-likes-icon");
+  divTotalLikes.setAttribute("class", "total-likes");
+  divTotalLikes.innerText = totalLikes;
+  divTotalLikesAndIcon.appendChild(divTotalLikes);
+  divTotalLikesAndIcon.appendChild(divTotalLikesIcon);
+  insert.appendChild(divTotalLikesAndIcon);
   insert.appendChild(divPrice);
   main.appendChild(insert);
   return insert;
 }
 
-// function getPrice(photographer) {
-//   const price = photographer.price;
-//   return price;
-// }
+async function addLike() {
+  const likes = document.getElementsByClassName("icon");
+  const totalLikes = document.querySelector(".total-likes");
 
-// function displayPrice(price) {
-//   const priceText = document.createElement("p");
-//   const insert2 = document.createElement("div");
-//   insert2.setAttribute("class", "total-box");
-//   priceText.innerHTML = price + "€/jour";
-//   insert2.appendChild(priceText);
-// }
+  // Incrémente le nombre de likes
+  for (let i = 0; i < likes.length; i++) {
+    let likeBtn = likes[i];
 
+    likeBtn.addEventListener("click", () => {
+      likeBtn.classList.toggle("selected");
+      let counter = likeBtn.parentElement.children[0];
+
+      console.log(counter);
+      if (likeBtn.classList.contains("selected")) {
+        counter.innerText++;
+        totalLikes.innerText++;
+        likeBtn.style.color = "#CC2904";
+      } else {
+        counter.innerText--;
+        totalLikes.innerText--;
+        likeBtn.style.color = "#901C1C";
+      }
+    });
+  }
+}
+
+/**
+ * Initializes every function
+ *
+ * @return totalLikes
+ */
 async function init() {
   // Récupération des données
   const data = await getData();
@@ -107,10 +157,8 @@ async function init() {
 
   // Affichage du total de likes
   const totalLikes = getTotalLikesAndPrice(medias, photographer);
-  displayTotalLikes(totalLikes, photographer);
+  displayTotalLikesAndPrice(totalLikes, photographer);
 
-  // //Affichage du prix
-  // const price = getPrice(photographer);
-  // displayPrice(price);
+  addLike();
 }
 init();

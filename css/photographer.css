@@ -6,7 +6,7 @@
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
-  margin: 0 75px;
+  margin: 0 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 70px;
-  margin: 50px;
+  margin: 050px;
 }
 
 .media-photos article {
@@ -104,7 +104,7 @@
   font-weight: 600;
 }
 
-.total-likes {
+.total-likes-icon {
   display: flex;
   align-items: center;
   gap: 5px;
