@@ -1,5 +1,6 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediaFactory } from "../factories/media.js";
+import { triggerLightbox } from "../utils/Lightbox.js";
 
 /**
  * Retrieves data from the JSON file
@@ -159,6 +160,10 @@ async function init() {
   const totalLikes = getTotalLikesAndPrice(medias, photographer);
   displayTotalLikesAndPrice(totalLikes, photographer);
 
+  //Incrémente les likes
   addLike();
+
+  //Déclenche la lightbox
+  triggerLightbox(medias);
 }
 init();

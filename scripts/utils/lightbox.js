@@ -1,7 +1,11 @@
 /**
  * Enables / disables the lightbox
  */
-export function triggerLightbox() {
+export function triggerLightbox(medias) {
+  console.log(medias);
+  const img = document.querySelector("img");
+  img.addEventListener("click", displayLightbox());
+
   // Au clic, afficher la lightbox
   // displayLightbox()
   // Si la lightbox est déjà ouverte, la fermer
@@ -20,6 +24,37 @@ export function triggerLightbox() {
  */
 function displayLightbox() {
   // Affichage du cadre de la lightbox dans le DOM
+
+  //DOM Elements
+  const main = document.getElementById("main");
+  const lightbox = document.createElement("div");
+  const lightboxContainer = document.createElement("div");
+  const lightboxNext = document.createElement("button");
+  const lightboxPrev = document.createElement("button");
+  const lightboxClose = document.createElement("button");
+
+  //Class allocation
+  lightbox.classList.add("lightbox");
+  lightboxNext.classList.add("lightbox__next");
+  lightboxPrev.classList.add("lightbox__prev");
+  lightboxClose.classList.add("lightbox__close");
+  lightboxContainer.classList.add("lightbox__container");
+
+  //Display of Elements
+  lightbox.appendChild(lightboxNext);
+  lightbox.appendChild(lightboxPrev);
+  lightbox.appendChild(lightboxClose);
+  lightbox.appendChild(lightboxContainer);
+  main.appendChild(lightbox);
+
+  //   <div class="lightbox">
+  //   <button class="lightbox__close">Fermer</button>
+  //   <button class="lightbox__next">Suivant</button>
+  //   <button class="lightbox__previous">Précédent</button>
+  //   <div class="lightbox__container">
+  //     <img src="assets\media\Marcel\Architecture_Contrast.jpg" alt="" />
+  //   </div>
+  // </div>
   // <div class="img-container"></div>
 }
 
