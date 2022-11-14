@@ -2,23 +2,39 @@
  * Enables / disables the lightbox
  */
 export function triggerLightbox(medias) {
-  console.log(medias);
+  // console.log(medias);
+  // console.log(medias.indexOf("7"));
+  //Evenement au clic
   const img = document.querySelector("img");
   img.addEventListener("click", displayLightbox());
+
+  //Si la lightbox est ouverte, on ferme la lightbox
+  const lightbox = document.querySelector(".lightbox");
+  const main = document.getElementById("main");
+  const test = main.contains(lightbox);
+  // if (test === true) {
+  //   lightbox.remove();
+  // }
+  closeLightbox();
+  // if (main.includes(lightbox)) {
+  //   console.log("tatata");
+  // }
 
   // Au clic, afficher la lightbox
   // displayLightbox()
   // Si la lightbox est déjà ouverte, la fermer
   // if (...)
-  // closeLightbox()
+  //closeLightbox();
   // Récupérer l'index du média cliqué -> besoin du tableau de médias (findIndex)
   // const currIndex = ?
   // Afficher l'image / la vidéo correspondante
   // setImgOrVideo(currIndex)
   // EventListener qui délenchent nextItem(currIndex) et previousItem(currIndex)
   //Normalement toutes les fonctions se retrouvent ici
+  const index = [...img.parentElement.children].indexOf(medias);
+  console.log(index);
+  // if(img.addEventListener("click", medias.findIndex))
 }
-
 /**
  * Displays the lightbox with the right image / video
  */
@@ -33,6 +49,10 @@ function displayLightbox() {
   const lightboxPrev = document.createElement("button");
   const lightboxClose = document.createElement("button");
 
+  const imgtest = document.createElement("img");
+  imgtest.src = "https://picsum.photos/200";
+  lightboxContainer.appendChild(imgtest);
+
   //Class allocation
   lightbox.classList.add("lightbox");
   lightboxNext.classList.add("lightbox__next");
@@ -46,16 +66,6 @@ function displayLightbox() {
   lightbox.appendChild(lightboxClose);
   lightbox.appendChild(lightboxContainer);
   main.appendChild(lightbox);
-
-  //   <div class="lightbox">
-  //   <button class="lightbox__close">Fermer</button>
-  //   <button class="lightbox__next">Suivant</button>
-  //   <button class="lightbox__previous">Précédent</button>
-  //   <div class="lightbox__container">
-  //     <img src="assets\media\Marcel\Architecture_Contrast.jpg" alt="" />
-  //   </div>
-  // </div>
-  // <div class="img-container"></div>
 }
 
 /**
@@ -63,6 +73,13 @@ function displayLightbox() {
  */
 function closeLightbox() {
   // remove() pour supprimer l'élément DOM
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxClose = document.querySelector(".lightbox__close");
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.remove();
+  });
+  // main.parentNode.removeChild(lightbox);
 }
 
 /**
