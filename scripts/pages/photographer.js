@@ -67,6 +67,8 @@ async function displayMedia(medias, photographer) {
     const photographMedia = mediaFactory(media, photographer);
     const photographerMedia = photographMedia.photographMedia();
     photographMediaDiv.appendChild(photographerMedia);
+
+    // TODO: triggerLightbox
   });
 }
 
@@ -129,7 +131,7 @@ async function addLike() {
       if (likeBtn.classList.contains("selected")) {
         counter.innerText++;
         totalLikes.innerText++;
-        likeBtn.style.color = "#CC2904";
+        likeBtn.style.color = "#D3573C";
       } else {
         counter.innerText--;
         totalLikes.innerText--;
@@ -162,8 +164,5 @@ async function init() {
 
   //Incrémente les likes
   addLike();
-
-  //Déclenche la lightbox
-  triggerLightbox(medias);
 }
 init();

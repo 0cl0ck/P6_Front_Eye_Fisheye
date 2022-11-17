@@ -28,6 +28,7 @@ export function mediaFactory(data, photographer) {
     //Process image or video
     if (image) {
       img.setAttribute("src", sourceImg);
+      img.setAttribute("class", "img");
       img.addEventListener("click", triggerLightbox);
       article.appendChild(img);
     } else {

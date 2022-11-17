@@ -1,39 +1,20 @@
 /**
  * Enables / disables the lightbox
  */
-export function triggerLightbox(medias) {
-  // console.log(medias);
-  // console.log(medias.indexOf("7"));
-  //Evenement au clic
-  const img = document.querySelector("img");
-  img.addEventListener("click", displayLightbox());
-
-  //Si la lightbox est ouverte, on ferme la lightbox
+export function triggerLightbox(e, data) {
   const lightbox = document.querySelector(".lightbox");
-  const main = document.getElementById("main");
-  const test = main.contains(lightbox);
-  // if (test === true) {
-  //   lightbox.remove();
-  // }
-  closeLightbox();
-  // if (main.includes(lightbox)) {
-  //   console.log("tatata");
-  // }
 
-  // Au clic, afficher la lightbox
-  // displayLightbox()
-  // Si la lightbox est déjà ouverte, la fermer
-  // if (...)
-  //closeLightbox();
-  // Récupérer l'index du média cliqué -> besoin du tableau de médias (findIndex)
-  // const currIndex = ?
-  // Afficher l'image / la vidéo correspondante
-  // setImgOrVideo(currIndex)
-  // EventListener qui délenchent nextItem(currIndex) et previousItem(currIndex)
-  //Normalement toutes les fonctions se retrouvent ici
-  const index = [...img.parentElement.children].indexOf(medias);
-  console.log(index);
-  // if(img.addEventListener("click", medias.findIndex))
+  if (lightbox) {
+    closeLightbox(lightbox);
+    return;
+  }
+
+  displayLightbox();
+  console.log(data);
+
+  // Curr index?
+  // const currIndex = medias.findIndex((el) => el.id === media.id);
+  // console.log(currIndex);
 }
 /**
  * Displays the lightbox with the right image / video
@@ -60,6 +41,10 @@ function displayLightbox() {
   lightboxClose.classList.add("lightbox__close");
   lightboxContainer.classList.add("lightbox__container");
 
+  lightboxClose.addEventListener("click", () => {
+    closeLightbox(lightbox);
+  });
+
   //Display of Elements
   lightbox.appendChild(lightboxNext);
   lightbox.appendChild(lightboxPrev);
@@ -69,17 +54,10 @@ function displayLightbox() {
 }
 
 /**
- * Closes the lightbox when clicking on the cross
+ * Closes the lightbox
  */
-function closeLightbox() {
-  // remove() pour supprimer l'élément DOM
-  const lightbox = document.querySelector(".lightbox");
-  const lightboxClose = document.querySelector(".lightbox__close");
-
-  lightboxClose.addEventListener("click", () => {
-    lightbox.remove();
-  });
-  // main.parentNode.removeChild(lightbox);
+function closeLightbox(lightbox) {
+  lightbox.remove();
 }
 
 /**
@@ -103,7 +81,7 @@ function previousItem() {
 /**
  * Sets the right image / video on the screen
  */
-function setImgOrVideo() {
+function setImgOrVideo(medias, currIndex) {
   // Retrouver le bon média dans le tableau de médias à partir de l'index passé en argument
   // if image
   // insérer l'image dans le DOM
