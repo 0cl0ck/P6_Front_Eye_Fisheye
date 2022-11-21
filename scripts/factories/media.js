@@ -24,17 +24,16 @@ export function mediaFactory(data, photographer) {
     const vid = document.createElement("video");
     const sourceImg = `assets/media/${firstName}/${image}`;
     const sourceVid = `assets/media/${firstName}/${video}`;
-
     //Process image or video
     if (image) {
       img.setAttribute("src", sourceImg);
       img.setAttribute("class", "img");
-      img.addEventListener("click", triggerLightbox);
+
       article.appendChild(img);
     } else {
       vid.setAttribute("src", sourceVid);
       //vid.setAttribute("controls", "");
-      vid.addEventListener("click", triggerLightbox);
+
       article.appendChild(vid);
     }
 
@@ -57,7 +56,8 @@ export function mediaFactory(data, photographer) {
   }
   return { photographMedia };
 }
-function prenom(value) {
+
+export function prenom(value) {
   const words = value.split(" ");
   let firstName = words[0];
 

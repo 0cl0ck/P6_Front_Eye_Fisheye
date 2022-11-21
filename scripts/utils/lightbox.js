@@ -1,25 +1,26 @@
+import { firstName } from "../factories/media.js";
 /**
  * Enables / disables the lightbox
  */
-export function triggerLightbox(e, data) {
+export function triggerLightbox(medias, media) {
   const lightbox = document.querySelector(".lightbox");
-
   if (lightbox) {
     closeLightbox(lightbox);
     return;
   }
 
-  displayLightbox();
-  console.log(data);
+  //console.log('lightbox', medias, media);
 
   // Curr index?
-  // const currIndex = medias.findIndex((el) => el.id === media.id);
-  // console.log(currIndex);
+  const currIndex = medias.findIndex((el) => el.id === media.id);
+  console.log(currIndex);
+  displayLightbox(currIndex, medias);
+  return currIndex;
 }
 /**
  * Displays the lightbox with the right image / video
  */
-function displayLightbox() {
+function displayLightbox(currIndex, medias) {
   // Affichage du cadre de la lightbox dans le DOM
 
   //DOM Elements
@@ -31,7 +32,12 @@ function displayLightbox() {
   const lightboxClose = document.createElement("button");
 
   const imgtest = document.createElement("img");
-  imgtest.src = "https://picsum.photos/200";
+  const i = currIndex;
+  console.log(i);
+  const imgmedia = medias[i];
+  console.log(imgmedia.image);
+
+  imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
   lightboxContainer.appendChild(imgtest);
 
   //Class allocation
@@ -81,7 +87,7 @@ function previousItem() {
 /**
  * Sets the right image / video on the screen
  */
-function setImgOrVideo(medias, currIndex) {
+function setImgOrVideo() {
   // Retrouver le bon média dans le tableau de médias à partir de l'index passé en argument
   // if image
   // insérer l'image dans le DOM

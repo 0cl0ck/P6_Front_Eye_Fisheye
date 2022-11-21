@@ -51,6 +51,8 @@ async function displayPhotographer(photographer) {
   const photographModel = photographerFactory(photographer);
   const photographerHeader = photographModel.photographerHeader();
   photographHeaderDiv.appendChild(photographerHeader);
+
+  //remplacer photographerHeaderDiv par main
 }
 
 /**
@@ -67,6 +69,13 @@ async function displayMedia(medias, photographer) {
     const photographMedia = mediaFactory(media, photographer);
     const photographerMedia = photographMedia.photographMedia();
     photographMediaDiv.appendChild(photographerMedia);
+
+    photographerMedia.firstChild.addEventListener("click", () => {
+      triggerLightbox(medias, media);
+    });
+    //photographMediaDiv = crée l'élément html div class = media-photos
+    //photographMedia = crée la section medias de photographer.html
+    //photographerMedia = résultat de la mediafactory avec le photographe de la page
 
     // TODO: triggerLightbox
   });
