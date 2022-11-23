@@ -1,4 +1,4 @@
-import { triggerLightbox } from "../utils/lightbox.js";
+import { firstNameValue } from "../utils/firstName.js";
 
 export function mediaFactory(data, photographer) {
   function photographMedia() {
@@ -7,7 +7,7 @@ export function mediaFactory(data, photographer) {
       data;
 
     const name = photographer.name;
-    const firstName = prenom(name);
+    const firstName = firstNameValue(name);
     //DOM Elements
     const main = document.getElementById("main");
     const article = document.createElement("article");
@@ -27,7 +27,6 @@ export function mediaFactory(data, photographer) {
     //Process image or video
     if (image) {
       img.setAttribute("src", sourceImg);
-      img.setAttribute("class", "img");
 
       article.appendChild(img);
     } else {
@@ -55,15 +54,4 @@ export function mediaFactory(data, photographer) {
     return article;
   }
   return { photographMedia };
-}
-
-export function prenom(value) {
-  const words = value.split(" ");
-  let firstName = words[0];
-
-  if (firstName.includes("-")) {
-    firstName = firstName.replace("-", " ");
-  }
-
-  return firstName;
 }

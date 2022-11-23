@@ -71,7 +71,7 @@ async function displayMedia(medias, photographer) {
     photographMediaDiv.appendChild(photographerMedia);
 
     photographerMedia.firstChild.addEventListener("click", () => {
-      triggerLightbox(medias, media);
+      triggerLightbox(medias, media, photographer);
     });
     //photographMediaDiv = crée l'élément html div class = media-photos
     //photographMedia = crée la section medias de photographer.html

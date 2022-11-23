@@ -1,9 +1,11 @@
-import { firstName } from "../factories/media.js";
+import { firstNameValue } from "../utils/firstName.js";
 /**
  * Enables / disables the lightbox
  */
-export function triggerLightbox(medias, media) {
+export function triggerLightbox(medias, media, photographer) {
   const lightbox = document.querySelector(".lightbox");
+  console.log(photographer);
+
   if (lightbox) {
     closeLightbox(lightbox);
     return;
@@ -14,14 +16,17 @@ export function triggerLightbox(medias, media) {
   // Curr index?
   const currIndex = medias.findIndex((el) => el.id === media.id);
   console.log(currIndex);
-  displayLightbox(currIndex, medias);
+  displayLightbox(currIndex, medias, photographer);
+  nextItem(currIndex);
   return currIndex;
 }
 /**
  * Displays the lightbox with the right image / video
  */
-function displayLightbox(currIndex, medias) {
+function displayLightbox(currIndex, medias, photographer) {
   // Affichage du cadre de la lightbox dans le DOM
+  const name = photographer.name;
+  const firstName = firstNameValue(name);
 
   //DOM Elements
   const main = document.getElementById("main");
@@ -69,7 +74,11 @@ function closeLightbox(lightbox) {
 /**
  * Displays the next image / video
  */
-function nextItem() {
+function nextItem(currIndex) {
+  console.log(currIndex);
+  const newIndex = currIndex++;
+  //TODO :foutre toute la construction de ce qui s'affiche dans la lightbox dans setImgOrVideo
+
   // Calcul pour déterminer l'index du média suivant (currIndex + 1)
   // const newIndex = ?
   // setImgOrVideo(newIndex)
