@@ -15,19 +15,18 @@ export function triggerLightbox(medias, media, photographer) {
 
   // Curr index?
   const currIndex = medias.findIndex((el) => el.id === media.id);
-  console.log(currIndex);
   displayLightbox(currIndex, medias, photographer);
-  nextItem(currIndex);
+  setImgOrVideo(currIndex, medias, photographer);
+  nextItem(currIndex, medias, photographer);
+  previousItem(currIndex, medias, photographer);
+
   return currIndex;
 }
 /**
  * Displays the lightbox with the right image / video
  */
-function displayLightbox(currIndex, medias, photographer) {
+function displayLightbox() {
   // Affichage du cadre de la lightbox dans le DOM
-  const name = photographer.name;
-  const firstName = firstNameValue(name);
-
   //DOM Elements
   const main = document.getElementById("main");
   const lightbox = document.createElement("div");
@@ -35,15 +34,6 @@ function displayLightbox(currIndex, medias, photographer) {
   const lightboxNext = document.createElement("button");
   const lightboxPrev = document.createElement("button");
   const lightboxClose = document.createElement("button");
-
-  const imgtest = document.createElement("img");
-  const i = currIndex;
-  console.log(i);
-  const imgmedia = medias[i];
-  console.log(imgmedia.image);
-
-  imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
-  lightboxContainer.appendChild(imgtest);
 
   //Class allocation
   lightbox.classList.add("lightbox");
@@ -74,11 +64,16 @@ function closeLightbox(lightbox) {
 /**
  * Displays the next image / video
  */
-function nextItem(currIndex) {
-  console.log(currIndex);
-  const newIndex = currIndex++;
-  //TODO :foutre toute la construction de ce qui s'affiche dans la lightbox dans setImgOrVideo
+function nextItem(currIndex, medias, photographer) {
+  const lightboxNext = document.querySelector(".lightbox__next");
+  lightboxNext.addEventListener("click", () => {
+    const lightboxImg = document.querySelector(".lightbox__img");
+    lightboxImg.remove();
 
+    const newIndex = (currIndex += 1);
+
+    setImgOrVideo(newIndex, medias, photographer);
+  });
   // Calcul pour déterminer l'index du média suivant (currIndex + 1)
   // const newIndex = ?
   // setImgOrVideo(newIndex)
@@ -87,7 +82,17 @@ function nextItem(currIndex) {
 /**
  * Displays the previous image / video
  */
-function previousItem() {
+function previousItem(currIndex, medias, photographer) {
+  const lightboxPrev = document.querySelector(".lightbox__prev");
+  lightboxPrev.addEventListener("click", () => {
+    const lightboxImg = document.querySelector(".lightbox__img");
+    lightboxImg.remove();
+
+    const newIndex = (currIndex -= 1);
+
+    //TODO : currIndex = newIndex ?
+    setImgOrVideo(newIndex, medias, photographer);
+  });
   // Calcul pour déterminer l'index du média précédent (currIndex - 1)
   // const newIndex = ?
   // setImgOrVideo(newIndex)
@@ -96,7 +101,18 @@ function previousItem() {
 /**
  * Sets the right image / video on the screen
  */
-function setImgOrVideo() {
+function setImgOrVideo(currIndex, medias, photographer) {
+  const name = photographer.name;
+  const firstName = firstNameValue(name);
+  const lightboxContainer = document.querySelector(".lightbox__container");
+
+  const imgtest = document.createElement("img");
+  imgtest.setAttribute("class", "lightbox__img");
+  const i = currIndex;
+  const imgmedia = medias[i];
+
+  imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
+  lightboxContainer.appendChild(imgtest);
   // Retrouver le bon média dans le tableau de médias à partir de l'index passé en argument
   // if image
   // insérer l'image dans le DOM

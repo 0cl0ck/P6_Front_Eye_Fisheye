@@ -76,8 +76,6 @@ async function displayMedia(medias, photographer) {
     //photographMediaDiv = crée l'élément html div class = media-photos
     //photographMedia = crée la section medias de photographer.html
     //photographerMedia = résultat de la mediafactory avec le photographe de la page
-
-    // TODO: triggerLightbox
   });
 }
 
