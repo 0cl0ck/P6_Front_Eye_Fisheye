@@ -5,26 +5,32 @@ import { firstNameValue } from "../utils/firstName.js";
  */
 export function triggerLightbox(medias, media, photographer) {
   const lightbox = document.querySelector(".lightbox");
-
+  //Si la lightbox est ouverte, on ferme la lightbox.
   if (lightbox) {
     closeLightbox(lightbox);
     return;
   }
 
-  // Curr index?
+  //currIndex retourne l'index du media cliqué.
   let currIndex = medias.findIndex((el) => el.id === media.id);
-  displayLightbox(currIndex, medias, photographer);
+
+  //On appelle la fonction displayLightbox pour afficher la lightbox,
+  displayLightbox();
+
+  //Puis on appelle la fonction setImgOrVideo pour déterminer le contenu de la lightbox
   setImgOrVideo(currIndex, medias, photographer);
 
   /**
    * Displays the next image / video
    */
   const nextItem = () => {
+    //DOM du contenu de la lightbox
     const lightboxContent = document.querySelector(".lightbox__content");
+    //On supprime le contenu de la lightbox
     lightboxContent.remove();
-
+    //On incrémente l'index du média
     currIndex = currIndex += 1;
-
+    //On appelle la fonction setImgOrVideo pour déterminer le média suivant.
     setImgOrVideo(currIndex, medias, photographer);
   };
 
@@ -32,19 +38,21 @@ export function triggerLightbox(medias, media, photographer) {
    * Displays the previous image / video
    */
   const previousItem = () => {
+    //DOM du contenu de la lightbox
     const lightboxContent = document.querySelector(".lightbox__content");
+    //On supprime le contenu de la lightbox
     lightboxContent.remove();
-
+    //On décrémente l'index du média
     currIndex = currIndex -= 1;
-
-    //TODO : currIndex = newIndex ?
+    //On appelle la fonction setImgOrVideo pour déterminer le média précédent.
     setImgOrVideo(currIndex, medias, photographer);
   };
 
+  //DOM Elements
   const lightboxNext = document.querySelector(".lightbox__next");
-  lightboxNext.addEventListener("click", nextItem);
-
   const lightboxPrev = document.querySelector(".lightbox__prev");
+  //Event Listeners
+  lightboxNext.addEventListener("click", nextItem);
   lightboxPrev.addEventListener("click", previousItem);
 }
 
@@ -68,6 +76,7 @@ function displayLightbox() {
   lightboxClose.classList.add("lightbox__close");
   lightboxContainer.classList.add("lightbox__container");
 
+  //Event Listeners
   lightboxClose.addEventListener("click", () => {
     closeLightbox(lightbox);
   });
@@ -91,29 +100,31 @@ function closeLightbox(lightbox) {
  * Sets the right image / video on the screen
  */
 function setImgOrVideo(currIndex, medias, photographer) {
+  //DOM Elements
+  const lightboxContainer = document.querySelector(".lightbox__container");
+  const imgMedia = document.createElement("img");
+  const vidMedia = document.createElement("video");
+  //Pour déterminer le chemin d'accès du media, récupère le prénom du photographe
   const name = photographer.name;
   const firstName = firstNameValue(name);
-  const lightboxContainer = document.querySelector(".lightbox__container");
 
-  const imgtest = document.createElement("img");
-  const vidtest = document.createElement("video");
-  imgtest.setAttribute("class", "lightbox__content");
-  vidtest.setAttribute("class", "lightbox__content");
+  //Class allocation
+  imgMedia.setAttribute("class", "lightbox__content");
+  vidMedia.setAttribute("class", "lightbox__content");
+
+  //On définit l'index du media avec i, puis on nomme une variable pour le situer dans le tableau des medias
   const i = currIndex;
-  const imgmedia = medias[i];
-  const vidmedia = medias[i];
-  console.log(imgmedia);
-  if (imgmedia.image) {
-    imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
-    lightboxContainer.appendChild(imgtest);
+  const media = medias[i];
+
+  //Si le media sélectionné est une image, on l'affiche, sinon, on affiche une vidéo
+  if (media.image) {
+    imgMedia.src = `assets/media/${firstName}/` + media.image;
+    lightboxContainer.appendChild(imgMedia);
   } else {
-    vidtest.src = `assets/media/${firstName}/` + vidmedia.video;
-    vidtest.setAttribute("controls", " ");
-    lightboxContainer.appendChild(vidtest);
+    vidMedia.src = `assets/media/${firstName}/` + media.video;
+    vidMedia.setAttribute("controls", " ");
+    lightboxContainer.appendChild(vidMedia);
   }
-  // Retrouver le bon média dans le tableau de médias à partir de l'index passé en argument
-  // if image
-  // insérer l'image dans le DOM
-  // else
-  // insérer la vidéo dans le DOM
 }
+
+//TODO: Mettre en place le previous sur la première image ainsi que le next sur la dernière.

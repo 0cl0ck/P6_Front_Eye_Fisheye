@@ -14,7 +14,7 @@ header {
 }
 
 h1 {
-  color: #901c1c;
+  color: hsl(0, 67%, 34%);
   margin-right: 100px;
 }
 
@@ -45,7 +45,7 @@ h1 {
 }
 
 .photographer_section article h2 {
-  color: #d3573c;
+  color: hsl(11, 63%, 53%);
   font-size: 36px;
   font-weight: 400;
   display: flex;
@@ -62,17 +62,15 @@ h1 {
   object-fit: cover;
   box-sizing: border-box;
 }
-.photographer_section p {
+.photographer_section .city-country {
   margin: 0;
-}
-.photographer_section .p0 {
   font-size: 13px;
-  color: #d3573c;
+  color: hsl(0, 67%, 34%);
 }
-.photographer_section .p1 {
+.photographer_section .tagline {
   font-size: 10px;
 }
-.photographer_section .p2 {
+.photographer_section .price {
   font-size: 9px;
-  color: #757575;
+  color: hsl(0, 0%, 46%);
 }
