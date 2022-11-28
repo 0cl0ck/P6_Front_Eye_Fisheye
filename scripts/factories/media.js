@@ -27,6 +27,7 @@ export function mediaFactory(data, photographer) {
     //Process image or video
     if (image) {
       img.setAttribute("src", sourceImg);
+      img.setAttribute("tabindex", "0");
 
       article.appendChild(img);
     } else {

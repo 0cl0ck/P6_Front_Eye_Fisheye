@@ -1,29 +1,55 @@
 import { firstNameValue } from "../utils/firstName.js";
+
 /**
  * Enables / disables the lightbox
  */
 export function triggerLightbox(medias, media, photographer) {
   const lightbox = document.querySelector(".lightbox");
-  console.log(photographer);
 
   if (lightbox) {
     closeLightbox(lightbox);
     return;
   }
 
-  //console.log('lightbox', medias, media);
-
   // Curr index?
-  const currIndex = medias.findIndex((el) => el.id === media.id);
+  let currIndex = medias.findIndex((el) => el.id === media.id);
   displayLightbox(currIndex, medias, photographer);
   setImgOrVideo(currIndex, medias, photographer);
-  nextItem(currIndex, medias, photographer);
-  previousItem(currIndex, medias, photographer);
 
-  return currIndex;
+  /**
+   * Displays the next image / video
+   */
+  const nextItem = () => {
+    const lightboxContent = document.querySelector(".lightbox__content");
+    lightboxContent.remove();
+
+    currIndex = currIndex += 1;
+
+    setImgOrVideo(currIndex, medias, photographer);
+  };
+
+  /**
+   * Displays the previous image / video
+   */
+  const previousItem = () => {
+    const lightboxContent = document.querySelector(".lightbox__content");
+    lightboxContent.remove();
+
+    currIndex = currIndex -= 1;
+
+    //TODO : currIndex = newIndex ?
+    setImgOrVideo(currIndex, medias, photographer);
+  };
+
+  const lightboxNext = document.querySelector(".lightbox__next");
+  lightboxNext.addEventListener("click", nextItem);
+
+  const lightboxPrev = document.querySelector(".lightbox__prev");
+  lightboxPrev.addEventListener("click", previousItem);
 }
+
 /**
- * Displays the lightbox with the right image / video
+ * Displays the lightbox in DOM
  */
 function displayLightbox() {
   // Affichage du cadre de la lightbox dans le DOM
@@ -62,43 +88,6 @@ function closeLightbox(lightbox) {
 }
 
 /**
- * Displays the next image / video
- */
-function nextItem(currIndex, medias, photographer) {
-  const lightboxNext = document.querySelector(".lightbox__next");
-  lightboxNext.addEventListener("click", () => {
-    const lightboxImg = document.querySelector(".lightbox__img");
-    lightboxImg.remove();
-
-    const newIndex = (currIndex += 1);
-
-    setImgOrVideo(newIndex, medias, photographer);
-  });
-  // Calcul pour déterminer l'index du média suivant (currIndex + 1)
-  // const newIndex = ?
-  // setImgOrVideo(newIndex)
-}
-
-/**
- * Displays the previous image / video
- */
-function previousItem(currIndex, medias, photographer) {
-  const lightboxPrev = document.querySelector(".lightbox__prev");
-  lightboxPrev.addEventListener("click", () => {
-    const lightboxImg = document.querySelector(".lightbox__img");
-    lightboxImg.remove();
-
-    const newIndex = (currIndex -= 1);
-
-    //TODO : currIndex = newIndex ?
-    setImgOrVideo(newIndex, medias, photographer);
-  });
-  // Calcul pour déterminer l'index du média précédent (currIndex - 1)
-  // const newIndex = ?
-  // setImgOrVideo(newIndex)
-}
-
-/**
  * Sets the right image / video on the screen
  */
 function setImgOrVideo(currIndex, medias, photographer) {
@@ -107,12 +96,21 @@ function setImgOrVideo(currIndex, medias, photographer) {
   const lightboxContainer = document.querySelector(".lightbox__container");
 
   const imgtest = document.createElement("img");
-  imgtest.setAttribute("class", "lightbox__img");
+  const vidtest = document.createElement("video");
+  imgtest.setAttribute("class", "lightbox__content");
+  vidtest.setAttribute("class", "lightbox__content");
   const i = currIndex;
   const imgmedia = medias[i];
-
-  imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
-  lightboxContainer.appendChild(imgtest);
+  const vidmedia = medias[i];
+  console.log(imgmedia);
+  if (imgmedia.image) {
+    imgtest.src = `assets/media/${firstName}/` + imgmedia.image;
+    lightboxContainer.appendChild(imgtest);
+  } else {
+    vidtest.src = `assets/media/${firstName}/` + vidmedia.video;
+    vidtest.setAttribute("controls", " ");
+    lightboxContainer.appendChild(vidtest);
+  }
   // Retrouver le bon média dans le tableau de médias à partir de l'index passé en argument
   // if image
   // insérer l'image dans le DOM

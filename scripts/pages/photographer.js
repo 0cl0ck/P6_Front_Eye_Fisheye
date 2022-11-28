@@ -162,7 +162,20 @@ async function init() {
   displayPhotographer(photographer);
 
   // Affichage de la galerie de médias
-  const medias = await getMedia(data);
+  let medias = await getMedia(data);
+  // document.querySelector("select").addEventListener('change', (e) => {
+  //   switch (e.target.value) {
+  //     case "Popularité":
+  //       // je fais le tri
+  //        return sortByPopularity()
+
+  //     case "Date":
+  //       // autre tri
+  //        return sortByDate()
+  //     default:
+  //       break;
+  //   }
+  // })
   displayMedia(medias, photographer);
 
   // Affichage du total de likes

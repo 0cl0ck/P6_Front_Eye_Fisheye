@@ -67,12 +67,15 @@
   animation: lightboxIn 0.5s;
 }
 
-.lightbox__container img {
+.lightbox__container img,
+.lightbox__container video {
   /* max-width: 100%;
   height: auto; */
   width: 1050px;
   height: 900px;
   object-fit: cover;
+  display: flex;
+  justify-content: center;
 
   animation: lightboxIn 0.5s;
 }
