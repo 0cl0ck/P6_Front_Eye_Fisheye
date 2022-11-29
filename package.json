@@ -1,0 +1,20 @@
+{
+  "name": "front-end-fisheye",
+  "version": "1.0.0",
+  "description": "Utiliser Live Server pour démarrer le projet :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0cl0ck/P6_Front_Eye_Fisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0cl0ck/P6_Front_Eye_Fisheye/issues"
+  },
+  "homepage": "https://github.com/0cl0ck/P6_Front_Eye_Fisheye#readme"
+}

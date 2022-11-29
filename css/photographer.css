@@ -1,10 +1,23 @@
+/* Color variables */
+:root {
+  /* Primary */
+  --red: hsl(0, 67%, 34%);
+  --peach: hsl(11, 63%, 53%);
+  /*Secondary */
+  --peachSecondary: hsl(11, 58%, 66%);
+  --white: hsl(0, 0%, 100%);
+  --greyWhite: hsl(0, 0%, 98%);
+  --grey: hsl(0, 0%, 32%);
+  --black: hsl(0, 3.2%, 18.6%);
+}
+
 /*HEADER*/
 #contact_modal {
   display: none;
 }
 
 .photograph-header {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--greyWhite);
   height: 300px;
   margin: 0 100px;
   display: flex;
@@ -31,12 +44,12 @@
   margin-left: 2rem;
 }
 .photograph-header-text .city-country {
-  color: hsl(0, 67%, 34%);
+  color: var(--red);
 }
 
 .photograph-header h1 {
   display: flex;
-  color: hsl(11, 63%, 53%);
+  color: var(--peach);
 }
 /* MAIN */
 /*MEDIA*/
@@ -55,7 +68,7 @@
 }
 
 .media-photos article p {
-  color: hsl(0, 67%, 34%);
+  color: var(--red);
 }
 
 .media-photos article img {
@@ -78,7 +91,7 @@
 }
 
 .title-likes i {
-  color: hsl(0, 67%, 34%);
+  color: var(--red);
 }
 
 .icon-likes {
@@ -99,7 +112,7 @@
   margin-right: 2rem;
   border-radius: 5px 5px 0px 0px;
   margin-top: 0;
-  background: hsl(11, 58%, 66%);
+  background: var(--peachSecondary);
   display: flex;
   justify-content: space-around;
   font-weight: 600;
@@ -120,19 +133,19 @@
 .contact_button {
   font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: var(--white);
   padding: 11px;
   width: 170px;
   height: 70px;
   border: none;
-  background-color: hsl(0, 67%, 34%);
+  background-color: var(--red);
   border-radius: 5px;
   cursor: pointer;
 }
 
 .modal {
   border-radius: 5px;
-  background-color: hsl(11, 58%, 66%);
+  background-color: var(--peachSecondary);
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -165,7 +178,7 @@ form {
 }
 
 form label {
-  color: #312e2e;
+  color: var(--black);
   font-size: 36px;
 }
 
