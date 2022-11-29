@@ -28,6 +28,7 @@ export function mediaFactory(data, photographer) {
     if (image) {
       img.setAttribute("src", sourceImg);
       img.setAttribute("tabindex", "0");
+      img.setAttribute("alt", title);
 
       article.appendChild(img);
     } else {
