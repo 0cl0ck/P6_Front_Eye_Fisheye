@@ -64,7 +64,7 @@ async function displayPhotographer(photographer) {
 async function displayMedia(medias, photographer) {
   const main = document.getElementById("main");
   const photographMediaDiv = document.createElement("div");
-  photographMediaDiv.setAttribute("class", "media-photos");
+  photographMediaDiv.setAttribute("class", "gallery");
   main.appendChild(photographMediaDiv);
   medias.forEach((media) => {
     const photographMedia = mediaFactory(media, photographer);
@@ -172,24 +172,28 @@ async function init() {
 
   // Affichage de la galerie de médias
   let medias = await getMedia(data);
+  const gallery = document.querySelector(".gallery");
 
   document.querySelector("select").addEventListener("change", (e) => {
     switch (e.target.value) {
       case "popularite":
         // je fais le tri
         medias = sortByPopularity(medias);
-        document.querySelector(".media-photos").remove();
+        document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
+        return;
 
       case "date":
         medias = sortByDate(medias);
-        document.querySelector(".media-photos").remove();
+        document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
+        return;
 
       case "titre":
         medias = sortByTitle(medias);
-        document.querySelector(".media-photos").remove();
+        document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
+        return;
 
       // TODO: Renommer la classe media-photos en gallery
       default:

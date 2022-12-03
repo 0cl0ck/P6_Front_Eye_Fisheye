@@ -51,7 +51,7 @@ export function photographerFactory(data) {
     titre.value = "titre";
     titre.innerText = "Titre";
 
-    //Display
+    //Display Elements
     select.appendChild(popularite);
     select.appendChild(date);
     select.appendChild(titre);
