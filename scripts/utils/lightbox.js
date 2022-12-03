@@ -127,4 +127,14 @@ function setImgOrVideo(currIndex, medias, photographer) {
   }
 }
 
+//Accessbilité Lightbox
+// window.addEventListener("keydown", (e) => {
+//   const lightbox = document.querySelector(".lightbox");
+//   const keyCode = e.keyCode ? e.keyCode : e.which;
+
+//   if ((lightbox.style.display = "flex" && keyCode === 37)) {
+//     previousItem();
+//   }
+// });
+
 //TODO: Mettre en place le previous sur la première image ainsi que le next sur la dernière.

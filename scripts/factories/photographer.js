@@ -32,6 +32,36 @@ export function photographerFactory(data) {
     return header;
   }
 
+  function galleryOptions() {
+    //DOM Elements
+    const div = document.createElement("div");
+    const label = document.createElement("label");
+    const select = document.createElement("select");
+    const popularite = document.createElement("option");
+    const date = document.createElement("option");
+    const titre = document.createElement("option");
+
+    //Attributes allocation
+    popularite.value = "popularite";
+    popularite.innerText = "Popularité";
+
+    date.value = "date";
+    date.innerText = "Date";
+
+    titre.value = "titre";
+    titre.innerText = "Titre";
+
+    //Display
+    select.appendChild(popularite);
+    select.appendChild(date);
+    select.appendChild(titre);
+
+    div.appendChild(label);
+    div.appendChild(select);
+
+    return div;
+  }
+
   function getUserCardDOM() {
     //DOM Elements
     const article = document.createElement("article");
@@ -63,5 +93,12 @@ export function photographerFactory(data) {
 
     return article;
   }
-  return { name, picture, price, getUserCardDOM, photographerHeader };
+  return {
+    name,
+    picture,
+    price,
+    getUserCardDOM,
+    photographerHeader,
+    galleryOptions,
+  };
 }

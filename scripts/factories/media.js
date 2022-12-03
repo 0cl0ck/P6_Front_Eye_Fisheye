@@ -33,6 +33,7 @@ export function mediaFactory(data, photographer) {
       article.appendChild(img);
     } else {
       vid.setAttribute("src", sourceVid);
+      vid.setAttribute("tabindex", "0");
       //vid.setAttribute("controls", "");
 
       article.appendChild(vid);

@@ -1,6 +1,9 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediaFactory } from "../factories/media.js";
 import { triggerLightbox } from "../utils/Lightbox.js";
+import { sortByPopularity } from "../utils/sort.js";
+import { sortByDate } from "../utils/sort.js";
+import { sortByTitle } from "../utils/sort.js";
 
 /**
  * Retrieves data from the JSON file
@@ -47,12 +50,10 @@ async function getPhotographer(data) {
  * @return
  */
 async function displayPhotographer(photographer) {
-  const photographHeaderDiv = document.getElementById("main");
+  const main = document.getElementById("main");
   const photographModel = photographerFactory(photographer);
   const photographerHeader = photographModel.photographerHeader();
-  photographHeaderDiv.appendChild(photographerHeader);
-
-  //remplacer photographerHeaderDiv par main
+  main.appendChild(photographerHeader);
 }
 
 /**
@@ -148,6 +149,13 @@ async function addLike() {
   }
 }
 
+async function displayGalleryOptions(photographer) {
+  const main = document.getElementById("main");
+  const photographModel = photographerFactory(photographer);
+  const galleryOptions = photographModel.galleryOptions();
+  main.appendChild(galleryOptions);
+}
+
 /**
  * Initializes every function
  *
@@ -160,22 +168,35 @@ async function init() {
   // Affichage des infos du photographe
   const photographer = await getPhotographer(data);
   displayPhotographer(photographer);
+  displayGalleryOptions(photographer);
 
   // Affichage de la galerie de médias
   let medias = await getMedia(data);
-  // document.querySelector("select").addEventListener('change', (e) => {
-  //   switch (e.target.value) {
-  //     case "Popularité":
-  //       // je fais le tri
-  //        return sortByPopularity()
 
-  //     case "Date":
-  //       // autre tri
-  //        return sortByDate()
-  //     default:
-  //       break;
-  //   }
-  // })
+  document.querySelector("select").addEventListener("change", (e) => {
+    switch (e.target.value) {
+      case "popularite":
+        // je fais le tri
+        medias = sortByPopularity(medias);
+        document.querySelector(".media-photos").remove();
+        displayMedia(medias, photographer);
+
+      case "date":
+        medias = sortByDate(medias);
+        document.querySelector(".media-photos").remove();
+        displayMedia(medias, photographer);
+
+      case "titre":
+        medias = sortByTitle(medias);
+        document.querySelector(".media-photos").remove();
+        displayMedia(medias, photographer);
+
+      // TODO: Renommer la classe media-photos en gallery
+      default:
+        break;
+    }
+  });
+
   displayMedia(medias, photographer);
 
   // Affichage du total de likes
