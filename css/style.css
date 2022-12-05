@@ -1,11 +1,14 @@
-@import url("photographer.css");
-/* Color variables */
+@import url("photographer.css"); /* Color variables */
 :root {
   /* Primary */
   --red: hsl(0, 67%, 34%);
   --peach: hsl(11, 63%, 53%);
   /*Secondary */
+  --peachSecondary: hsl(11, 58%, 66%);
+  --white: hsl(0, 0%, 100%);
+  --greyWhite: hsl(0, 0%, 98%);
   --grey: hsl(0, 0%, 32%);
+  --black: hsl(0, 3.2%, 18.6%);
 }
 
 body {

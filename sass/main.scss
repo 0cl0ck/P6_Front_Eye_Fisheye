@@ -1,13 +1,5 @@
 @import url("photographer.css");
-
-/* Color variables */
-:root {
-  /* Primary */
-  --red: hsl(0, 67%, 34%);
-  --peach: hsl(11, 63%, 53%);
-  /*Secondary */
-  --grey: hsl(0, 0%, 32%);
-}
+@import "./utils/variables";
 
 body {
   font-family: "DM Sans", sans-serif;

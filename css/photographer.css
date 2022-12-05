@@ -43,8 +43,17 @@
   order: -1;
   margin-left: 2rem;
 }
-.photograph-header-text .city-country {
+.photograph-header-text .location {
   color: var(--red);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0.5rem 0;
+}
+
+.photograph-header-text .tagline {
+  font-size: 16px;
+  color: var(--grey);
+  margin: 0.5rem 0;
 }
 
 .photograph-header h1 {

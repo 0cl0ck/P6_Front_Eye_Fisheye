@@ -172,7 +172,6 @@ async function init() {
 
   // Affichage de la galerie de médias
   let medias = await getMedia(data);
-  const gallery = document.querySelector(".gallery");
 
   document.querySelector("select").addEventListener("change", (e) => {
     switch (e.target.value) {
@@ -195,7 +194,6 @@ async function init() {
         displayMedia(medias, photographer);
         return;
 
-      // TODO: Renommer la classe media-photos en gallery
       default:
         break;
     }

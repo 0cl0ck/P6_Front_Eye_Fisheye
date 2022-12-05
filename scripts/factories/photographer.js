@@ -41,7 +41,9 @@ export function photographerFactory(data) {
     const date = document.createElement("option");
     const titre = document.createElement("option");
 
-    //Attributes allocation
+    //Attribute & value allocation
+    div.setAttribute("class", "gallery__options");
+
     popularite.value = "popularite";
     popularite.innerText = "Popularité";
 
