@@ -1,5 +1,6 @@
-@import url("photographer.css");
 @import "./utils/variables";
+@import "./pages/photographer";
+@import "./pages/index";
 
 body {
   font-family: "DM Sans", sans-serif;
@@ -17,60 +18,4 @@ header {
 h1 {
   color: var(--red);
   margin-right: 100px;
-}
-
-.logo {
-  height: 50px;
-  margin-left: 100px;
-}
-
-.photographer_section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 70px;
-  margin: 3.5rem 0;
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-  }
-  article {
-    display: flex;
-    justify-self: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    h2 {
-      color: var(--peach);
-      font-size: 36px;
-      font-weight: 400;
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      margin: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    img {
-      height: 200px;
-      width: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-sizing: border-box;
-    }
-  }
-  .location {
-    margin: 0;
-    font-size: 18px;
-    color: var(--red);
-  }
-  .tagline {
-    font-size: 16px;
-    margin: 0;
-  }
-  .price {
-    font-size: 14px;
-    color: var(--grey);
-    margin: 0;
-  }
 }
