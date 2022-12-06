@@ -1,12 +1,13 @@
 /* Color variables */
-:root {
-  /* Primary */
-  --red: hsl(0, 67%, 34%);
-  --peach: hsl(11, 63%, 53%);
-  /*Secondary */
-  --peachSecondary: hsl(11, 58%, 66%);
-  --white: hsl(0, 0%, 100%);
-  --greyWhite: hsl(0, 0%, 98%);
-  --grey: hsl(0, 0%, 32%);
-  --black: hsl(0, 3.2%, 18.6%);
-}
+/* Primary */
+$color-primary: hsl(0, 67%, 34%);
+$color-primary-bis: hsl(11, 63%, 53%);
+/*Secondary */
+$color-secondary: hsl(11, 58%, 66%);
+$color-secondary-light: hsl(0, 0%, 100%);
+$color-secondary-light-bis: hsl(0, 0%, 98%);
+$color-secondary-dark: hsl(0, 3.2%, 18.6%);
+$color-secondary-dark-bis: hsl(0, 0%, 32%);
+$color-lightbox-background: hsla(0, 0%, 0%, 0.9);
+
+//TODO: Renommer les variables en fonction de leur rôle et non pas de leur contenu

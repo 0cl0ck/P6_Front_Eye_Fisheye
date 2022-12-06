@@ -4,7 +4,7 @@
 }
 
 .photograph-header {
-  background-color: var(--greyWhite);
+  background-color: $color-secondary-light-bis;
   height: 300px;
   margin: 0 100px;
   display: flex;
@@ -31,7 +31,7 @@
   margin-left: 2rem;
 }
 .photograph-header-text .location {
-  color: var(--red);
+  color: $color-primary;
   font-weight: 500;
   font-size: 20px;
   margin: 0.5rem 0;
@@ -39,13 +39,13 @@
 
 .photograph-header-text .tagline {
   font-size: 16px;
-  color: var(--grey);
+  color: $color-secondary-dark-bis;
   margin: 0.5rem 0;
 }
 
 .photograph-header h1 {
   display: flex;
-  color: var(--peach);
+  color: $color-primary-bis;
 }
 /* MAIN */
 /*MEDIA*/
@@ -64,7 +64,7 @@
 }
 
 .gallery article p {
-  color: var(--red);
+  color: $color-primary;
 }
 
 .gallery article img {
@@ -87,7 +87,7 @@
 }
 
 .title-likes i {
-  color: var(--red);
+  color: $color-primary;
 }
 
 .icon-likes {
@@ -108,7 +108,7 @@
   margin-right: 2rem;
   border-radius: 5px 5px 0px 0px;
   margin-top: 0;
-  background: var(--peachSecondary);
+  background: $color-secondary;
   display: flex;
   justify-content: space-around;
   font-weight: 600;
@@ -129,19 +129,19 @@
 .contact_button {
   font-size: 20px;
   font-weight: bold;
-  color: var(--white);
+  color: $color-secondary-light;
   padding: 11px;
   width: 170px;
   height: 70px;
   border: none;
-  background-color: var(--red);
+  background-color: $color-primary;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .modal {
   border-radius: 5px;
-  background-color: var(--peachSecondary);
+  background-color: $color-secondary;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -174,7 +174,7 @@ form {
 }
 
 form label {
-  color: var(--black);
+  color: $color-secondary-dark;
   font-size: 36px;
 }
 

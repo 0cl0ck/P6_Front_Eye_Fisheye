@@ -9,12 +9,16 @@
     font-weight: 600;
   }
   select {
-    background-color: var(--red);
+    background-color: $color-primary;
     color: white;
     font-weight: 600;
     border-radius: 5px;
-    border-color: var(--red);
+    border-color: $color-primary;
     width: 7rem;
     height: 2rem;
+    &:hover,
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
