@@ -50,7 +50,7 @@ export function triggerLightbox(medias, media, photographer) {
 
   //DOM Elements
   const lightboxNext = document.querySelector(".lightbox__next");
-  const lightboxPrev = document.querySelector(".lightbox__prev");
+  const lightboxPrev = document.querySelector(".lightbox__previous");
   //Event Listeners
   lightboxNext.addEventListener("click", nextItem);
   lightboxPrev.addEventListener("click", previousItem);
@@ -72,7 +72,7 @@ function displayLightbox() {
   //Class allocation
   lightbox.classList.add("lightbox");
   lightboxNext.classList.add("lightbox__next");
-  lightboxPrev.classList.add("lightbox__prev");
+  lightboxPrev.classList.add("lightbox__previous");
   lightboxClose.classList.add("lightbox__close");
   lightboxContainer.classList.add("lightbox__container");
 

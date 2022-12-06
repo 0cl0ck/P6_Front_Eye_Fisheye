@@ -1,6 +1,14 @@
 /* Color variables */
 /* Primary */
 /*Secondary */
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -38,8 +46,7 @@ h1 {
   width: 7rem;
   height: 2rem;
 }
-.gallery__options select:hover,
-.gallery__options select:focus-visible {
+.gallery__options select:hover, .gallery__options select:focus-visible {
   outline: none;
 }
 
@@ -295,6 +302,77 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0deg, 0%, 0%, 0.9);
+  z-index: 10;
+  overflow: auto;
+  animation: lightboxIn 0.5s;
+}
+.lightbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-left: 50px;
+  margin-right: 50px;
+  animation: lightboxIn 0.5s;
+}
+.lightbox__container img,
+.lightbox__container video {
+  /* max-width: 100%;
+  height: auto; */
+  width: 1050px;
+  height: 900px;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  animation: lightboxIn 0.5s;
+}
+.lightbox__previous {
+  right: auto;
+  left: 0;
+  transform: rotate(180deg);
+}
+.lightbox__previous, .lightbox__next {
+  border: none;
+  background: url(../assets/icons/arrow.svg) center center/60px 45px no-repeat;
+  width: 50px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: -14px;
+  z-index: 11;
+  transition: 0.3s;
+}
+.lightbox__previous:hover, .lightbox__next:hover {
+  opacity: 1;
+}
+.lightbox__close {
+  width: 42px;
+  height: 42px;
+  z-index: 12;
+  border: none;
+  background: url(../assets/icons/close.svg) center center/42px 42px no-repeat transparent;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+.lightbox button {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  cursor: pointer;
+  text-indent: -3000px;
+}
+.lightbox button:hover {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
