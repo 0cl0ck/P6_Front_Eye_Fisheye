@@ -44,6 +44,8 @@ export function photographerFactory(data) {
     //Attribute & value allocation
     div.setAttribute("class", "gallery__options");
 
+    label.innerText = "Trier par";
+
     popularite.value = "popularite";
     popularite.innerText = "Popularité";
 
