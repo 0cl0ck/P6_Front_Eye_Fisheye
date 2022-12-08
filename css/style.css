@@ -44,8 +44,8 @@ h1 {
   background-color: hsl(0deg, 67%, 34%);
   border: none;
 }
-.gallery__options--sort ul {
-  display: flex;
+.gallery__options .liste {
+  display: none;
   flex-direction: column;
 }
 

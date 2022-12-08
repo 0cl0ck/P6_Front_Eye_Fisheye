@@ -14,9 +14,9 @@
     color: $color-secondary-light;
     background-color: $color-primary;
     border: none;
-    ul {
-      display: flex;
-      flex-direction: column;
-    }
+  }
+  .liste {
+    display: none;
+    flex-direction: column;
   }
 }

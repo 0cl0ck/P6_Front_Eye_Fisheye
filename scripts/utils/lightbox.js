@@ -56,13 +56,18 @@ export function triggerLightbox(medias, media, photographer) {
   lightboxNext.addEventListener("click", nextItem);
   lightboxPrev.addEventListener("click", previousItem);
   //Accessbilité Lightbox
-  // window.addEventListener("keydown", (e) => {
-  //   const lightbox = document.querySelector(".lightbox");
-
-  //   if (lightbox && e.key == 37) {
-  //     previousItem;
-  //   }
-  // });
+  window.addEventListener("keydown", (e) => {
+    const lightbox = document.querySelector(".lightbox");
+    if (lightbox && e.key === "ArrowLeft") {
+      previousItem();
+    }
+    if (lightbox && e.key === "ArrowRight") {
+      nextItem();
+    }
+    if (lightbox && e.key === "Escape") {
+      closeLightbox(lightbox);
+    }
+  });
 }
 
 /**

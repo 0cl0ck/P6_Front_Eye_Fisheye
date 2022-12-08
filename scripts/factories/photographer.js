@@ -36,13 +36,14 @@ export function photographerFactory(data) {
     //DOM Elements
     const div = document.createElement("div");
     const label = document.createElement("label");
+    const wrapper = document.createElement("div");
     const btnSelect = document.createElement("button");
+    const sortList = document.createElement("div");
     const popularite = document.createElement("button");
     const date = document.createElement("button");
     const titre = document.createElement("button");
 
-    const ul = document.createElement("ul");
-    ul.setAttribute("class", "liste");
+    sortList.setAttribute("class", "liste");
     //Attribute & value allocation
     div.setAttribute("class", "gallery__options");
     btnSelect.setAttribute("class", "gallery__options--sort");
@@ -63,13 +64,26 @@ export function photographerFactory(data) {
     titre.innerText = "Titre";
 
     //Display Elements
-    ul.appendChild(popularite);
-    ul.appendChild(date);
-    ul.appendChild(titre);
+    sortList.appendChild(popularite);
+    sortList.appendChild(date);
+    sortList.appendChild(titre);
 
     div.appendChild(label);
-    div.appendChild(btnSelect);
-    btnSelect.appendChild(ul);
+    div.appendChild(wrapper);
+    wrapper.appendChild(btnSelect);
+    wrapper.appendChild(sortList);
+
+    const toggleList = () => {
+      if (sortList.style.display === "flex") {
+        sortList.style.display = "none";
+      } else {
+        sortList.style.display = "flex";
+      }
+    };
+
+    btnSelect.addEventListener("click", toggleList);
+
+    sortList.addEventListener("click", toggleList);
 
     return div;
   }
