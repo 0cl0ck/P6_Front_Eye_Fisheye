@@ -37,17 +37,16 @@ h1 {
 .gallery__options label {
   font-weight: 600;
 }
-.gallery__options select {
-  background-color: hsl(0deg, 67%, 34%);
-  color: white;
-  font-weight: 600;
+.gallery__options--sort {
+  max-width: 300px;
   border-radius: 5px;
-  border-color: hsl(0deg, 67%, 34%);
-  width: 7rem;
-  height: 2rem;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 67%, 34%);
+  border: none;
 }
-.gallery__options select:hover, .gallery__options select:focus-visible {
-  outline: none;
+.gallery__options--sort ul {
+  display: flex;
+  flex-direction: column;
 }
 
 .logo {

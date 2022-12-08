@@ -23,6 +23,7 @@ export function triggerLightbox(medias, media, photographer) {
   /**
    * Displays the next image / video
    */
+
   const nextItem = () => {
     //DOM du contenu de la lightbox
     const lightboxContent = document.querySelector(".lightbox__content");
@@ -54,6 +55,14 @@ export function triggerLightbox(medias, media, photographer) {
   //Event Listeners
   lightboxNext.addEventListener("click", nextItem);
   lightboxPrev.addEventListener("click", previousItem);
+  //Accessbilité Lightbox
+  // window.addEventListener("keydown", (e) => {
+  //   const lightbox = document.querySelector(".lightbox");
+
+  //   if (lightbox && e.key == 37) {
+  //     previousItem;
+  //   }
+  // });
 }
 
 /**
@@ -126,15 +135,5 @@ function setImgOrVideo(currIndex, medias, photographer) {
     lightboxContainer.appendChild(vidMedia);
   }
 }
-
-//Accessbilité Lightbox
-// window.addEventListener("keydown", (e) => {
-//   const lightbox = document.querySelector(".lightbox");
-//   const keyCode = e.keyCode ? e.keyCode : e.which;
-
-//   if ((lightbox.style.display = "flex" && keyCode === 37)) {
-//     previousItem();
-//   }
-// });
 
 //TODO: Mettre en place le previous sur la première image ainsi que le next sur la dernière.

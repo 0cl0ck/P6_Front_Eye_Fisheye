@@ -173,31 +173,33 @@ async function init() {
   // Affichage de la galerie de médias
   let medias = await getMedia(data);
 
-  document.querySelector("select").addEventListener("change", (e) => {
-    switch (e.target.value) {
-      case "popularite":
-        // je fais le tri
-        medias = sortByPopularity(medias);
-        document.querySelector(".gallery").remove();
-        displayMedia(medias, photographer);
-        return;
+  document
+    .querySelector(".gallery__options--sort")
+    .addEventListener("click", (e) => {
+      switch (e.target.value) {
+        case "popularite":
+          // je fais le tri
+          medias = sortByPopularity(medias);
+          document.querySelector(".gallery").remove();
+          displayMedia(medias, photographer);
+          return;
 
-      case "date":
-        medias = sortByDate(medias);
-        document.querySelector(".gallery").remove();
-        displayMedia(medias, photographer);
-        return;
+        case "date":
+          medias = sortByDate(medias);
+          document.querySelector(".gallery").remove();
+          displayMedia(medias, photographer);
+          return;
 
-      case "titre":
-        medias = sortByTitle(medias);
-        document.querySelector(".gallery").remove();
-        displayMedia(medias, photographer);
-        return;
+        case "titre":
+          medias = sortByTitle(medias);
+          document.querySelector(".gallery").remove();
+          displayMedia(medias, photographer);
+          return;
 
-      default:
-        break;
-    }
-  });
+        default:
+          break;
+      }
+    });
 
   displayMedia(medias, photographer);
 

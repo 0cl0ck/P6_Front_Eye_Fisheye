@@ -8,17 +8,15 @@
   label {
     font-weight: 600;
   }
-  select {
-    background-color: $color-primary;
-    color: white;
-    font-weight: 600;
+  &--sort {
+    max-width: 300px;
     border-radius: 5px;
-    border-color: $color-primary;
-    width: 7rem;
-    height: 2rem;
-    &:hover,
-    &:focus-visible {
-      outline: none;
+    color: $color-secondary-light;
+    background-color: $color-primary;
+    border: none;
+    ul {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

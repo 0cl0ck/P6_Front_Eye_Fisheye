@@ -36,14 +36,21 @@ export function photographerFactory(data) {
     //DOM Elements
     const div = document.createElement("div");
     const label = document.createElement("label");
-    const select = document.createElement("select");
-    const popularite = document.createElement("option");
-    const date = document.createElement("option");
-    const titre = document.createElement("option");
+    const btnSelect = document.createElement("button");
+    const popularite = document.createElement("button");
+    const date = document.createElement("button");
+    const titre = document.createElement("button");
 
+    const ul = document.createElement("ul");
+    ul.setAttribute("class", "liste");
     //Attribute & value allocation
     div.setAttribute("class", "gallery__options");
+    btnSelect.setAttribute("class", "gallery__options--sort");
+    popularite.setAttribute("class", "gallery__options--popularite");
+    date.setAttribute("class", "gallery__options--date");
+    titre.setAttribute("class", "gallery__options--titre");
 
+    btnSelect.innerText = "Choisir";
     label.innerText = "Trier par";
 
     popularite.value = "popularite";
@@ -56,12 +63,13 @@ export function photographerFactory(data) {
     titre.innerText = "Titre";
 
     //Display Elements
-    select.appendChild(popularite);
-    select.appendChild(date);
-    select.appendChild(titre);
+    ul.appendChild(popularite);
+    ul.appendChild(date);
+    ul.appendChild(titre);
 
     div.appendChild(label);
-    div.appendChild(select);
+    div.appendChild(btnSelect);
+    btnSelect.appendChild(ul);
 
     return div;
   }
