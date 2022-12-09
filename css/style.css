@@ -43,6 +43,7 @@ h1 {
   color: hsl(0deg, 0%, 100%);
   background-color: hsl(0deg, 67%, 34%);
   border: none;
+  padding: 0.75rem;
 }
 .gallery__options .liste {
   display: none;
