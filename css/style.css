@@ -50,6 +50,81 @@ h1 {
   flex-direction: column;
 }
 
+#contact_modal {
+  display: none;
+}
+
+/*CONTACT*/
+.contact_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: hsl(0deg, 0%, 100%);
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: hsl(0deg, 67%, 34%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal {
+  border-radius: 5px;
+  background-color: hsl(11deg, 58%, 66%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+}
+
+.modal header {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal header img {
+  cursor: pointer;
+}
+
+.modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form label {
+  color: hsl(0deg, 3.2%, 18.6%);
+  font-size: 36px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+
+form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+}
+
+.input_message {
+  height: 150px;
+}
+
 .logo {
   height: 50px;
   margin-left: 100px;
@@ -107,10 +182,6 @@ h1 {
 }
 
 /*HEADER*/
-#contact_modal {
-  display: none;
-}
-
 .photograph-header {
   background-color: hsl(0deg, 0%, 98%);
   height: 300px;
@@ -234,74 +305,6 @@ h1 {
 .price {
   display: flex;
   align-items: center;
-}
-
-/*CONTACT*/
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: hsl(0deg, 0%, 100%);
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: hsl(0deg, 67%, 34%);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal {
-  border-radius: 5px;
-  background-color: hsl(11deg, 58%, 66%);
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
-}
-
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
-}
-
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-form label {
-  color: hsl(0deg, 3.2%, 18.6%);
-  font-size: 36px;
-}
-
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
 }
 
 .lightbox {
