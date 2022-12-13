@@ -79,3 +79,10 @@ function closeModal() {
   main.style.opacity = "1";
   location.reload();
 }
+
+// FORM VALIDATION
+
+//REGEX
+
+const regExpNames = /^[a-zA-Z]{2,}$/;
+const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
