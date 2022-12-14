@@ -24,7 +24,6 @@ function displayModal(photographer) {
   const inputEmail = document.createElement("input");
   const inputMessage = document.createElement("input");
   const contactButton = document.createElement("button");
-  const gallery = document.querySelector(".gallery");
 
   //Attributes allocation
   contactModal.setAttribute("id", "contact_modal");
@@ -33,6 +32,7 @@ function displayModal(photographer) {
   img.src = "assets/icons/close.svg";
   img.setAttribute("onclick", "closeModal()");
   labelFirstName.innerText = "Prénom";
+  inputFirstName.setAttribute("id", "firstName");
   labelName.innerText = "Nom";
   labelEmail.innerText = "Email";
   labelMessage.innerText = "Votre Message";
@@ -83,6 +83,24 @@ function closeModal() {
 // FORM VALIDATION
 
 //REGEX
+// const contactButton = document.querySelector(".contact_button");
+// const regExpNames = /^[a-zA-Z]{2,}$/;
+// const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-const regExpNames = /^[a-zA-Z]{2,}$/;
-const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+// contactButton.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const firstName = document.getElementById("firstName");
+//   if (!checkFirstName(firstName)) {
+//     return;
+//   }
+// });
+
+// function checkFirstName() {
+//   if (
+//     !firstName.ariaValueMax.match(regExpNames) ||
+//     firstName.value.trim() === ""
+//   ) {
+//     firstName.style.border = "2px solid #FF4E6O";
+//     return false;
+//   }
+// }
