@@ -44,10 +44,23 @@ h1 {
   background-color: hsl(0deg, 67%, 34%);
   border: none;
   padding: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 .gallery__options .liste {
   display: none;
   flex-direction: column;
+  position: fixed;
+  z-index: 1;
+}
+.gallery__options .liste button {
+  max-width: 300px;
+  border-radius: 5px;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 67%, 34%);
+  border: none;
+  padding: 0.75rem;
 }
 
 #contact_modal {

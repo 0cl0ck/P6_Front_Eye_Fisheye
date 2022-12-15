@@ -15,9 +15,22 @@
     background-color: $color-primary;
     border: none;
     padding: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
   }
   .liste {
     display: none;
     flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    button {
+      max-width: 300px;
+      border-radius: 5px;
+      color: $color-secondary-light;
+      background-color: $color-primary;
+      border: none;
+      padding: 0.75rem;
+    }
   }
 }

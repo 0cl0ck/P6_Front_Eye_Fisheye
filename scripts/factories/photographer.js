@@ -42,7 +42,9 @@ export function photographerFactory(data) {
     const popularite = document.createElement("button");
     const date = document.createElement("button");
     const titre = document.createElement("button");
+    const chevron = document.createElement("i");
 
+    chevron.setAttribute("class", "fa-solid fa-chevron-down");
     sortList.setAttribute("class", "liste");
     //Attribute & value allocation
     div.setAttribute("class", "gallery__options");
@@ -70,6 +72,7 @@ export function photographerFactory(data) {
 
     div.appendChild(label);
     div.appendChild(wrapper);
+    btnSelect.appendChild(chevron);
     wrapper.appendChild(btnSelect);
     wrapper.appendChild(sortList);
 
