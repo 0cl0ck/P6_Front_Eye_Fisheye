@@ -3,6 +3,12 @@
 function displayModal(photographer) {
   //   const name = photographer.name;
   //   const firstName = firstNameValue(name);
+  const modale = document.getElementById("contact_modal");
+
+  if (modale) {
+    modale.style.display = "flex";
+    return;
+  }
 
   //DOM Elements
   //   const modal = document.getElementById("contact_modal");
@@ -41,7 +47,7 @@ function displayModal(photographer) {
   inputMessage.setAttribute("class", "input_message");
 
   // Display modal
-
+  form.setAttribute("id", "form");
   header.appendChild(contactModal);
   contactModal.appendChild(modal);
   modal.appendChild(contactHeader);
@@ -58,8 +64,8 @@ function displayModal(photographer) {
   formContent.appendChild(inputMessage);
   form.appendChild(formContent);
   form.appendChild(contactButton);
-  contactModal.style.display = "flex";
 
+  contactModal.style.display = "flex";
   contactModal.style.position = "fixed";
   contactModal.style.width = "auto";
   contactModal.style.left = "45%";
@@ -69,38 +75,50 @@ function displayModal(photographer) {
   main.style.opacity = "0.5";
   contactModal.style.zIndex = "2";
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(inputFirstName.value);
+    console.log(inputName.value);
+    console.log(inputEmail.value);
+    console.log(inputMessage.value);
+  });
   //   main.appendChild(modal);
   //   modal.style.display = "block";
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
+
   modal.style.display = "none";
   main.style.opacity = "1";
-  location.reload();
+  // location.reload();
 }
 
 // FORM VALIDATION
 
-//REGEX
-// const contactButton = document.querySelector(".contact_button");
-// const regExpNames = /^[a-zA-Z]{2,}$/;
-// const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+// REGEX
+const form = document.getElementById("form");
+const contactButton = document.querySelector(".contact_button");
+const regExpNames = /^[a-zA-Z]{2,}$/;
+const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-// contactButton.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const firstName = document.getElementById("firstName");
-//   if (!checkFirstName(firstName)) {
-//     return;
-//   }
-// });
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const firstName = document.getElementById("firstName");
+  if (!checkFirstName(firstName)) {
+    return;
+  }
+});
 
-// function checkFirstName() {
-//   if (
-//     !firstName.ariaValueMax.match(regExpNames) ||
-//     firstName.value.trim() === ""
-//   ) {
-//     firstName.style.border = "2px solid #FF4E6O";
-//     return false;
-//   }
-// }
+function checkFirstName() {
+  const firstName = document.getElementById("firstName");
+
+  if (
+    firstName.ariaValueMax.match(regExpNames) ||
+    firstName.value.trim() === ""
+  ) {
+    firstName.style.border = "2px solid #FF4E6O";
+  } else {
+    firstName.style.border = "2 solid #F00";
+  }
+}

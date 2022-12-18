@@ -179,22 +179,27 @@ async function init() {
         medias = sortByPopularity(medias);
         document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
-        document.querySelector(".gallery__options--sort").innerText =
-          "Popularité";
+        document.querySelector(
+          ".gallery__options--sort"
+        ).innerHTML = `Popularité <i class="fa-solid fa-chevron-down"></i>`;
         return;
 
       case "date":
         medias = sortByDate(medias);
         document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
-        document.querySelector(".gallery__options--sort").innerText = "Date";
+        document.querySelector(
+          ".gallery__options--sort"
+        ).innerHTML = `Date <i class="fa-solid fa-chevron-down"></i>`;
         return;
 
       case "titre":
         medias = sortByTitle(medias);
         document.querySelector(".gallery").remove();
         displayMedia(medias, photographer);
-        document.querySelector(".gallery__options--sort").innerText = "Titre";
+        document.querySelector(
+          ".gallery__options--sort"
+        ).innerHTML = `Titre <i class="fa-solid fa-chevron-down"></i>`;
         return;
 
       default:

@@ -9,7 +9,7 @@
     font-weight: 600;
   }
   &--sort {
-    max-width: 300px;
+    width: 6.5rem;
     border-radius: 5px;
     color: $color-secondary-light;
     background-color: $color-primary;
@@ -17,9 +17,11 @@
     padding: 0.75rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 0.5rem;
   }
   .liste {
+    width: 6.5rem;
     display: none;
     flex-direction: column;
     position: fixed;

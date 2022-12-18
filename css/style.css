@@ -38,7 +38,7 @@ h1 {
   font-weight: 600;
 }
 .gallery__options--sort {
-  max-width: 300px;
+  width: 6.5rem;
   border-radius: 5px;
   color: hsl(0deg, 0%, 100%);
   background-color: hsl(0deg, 67%, 34%);
@@ -46,9 +46,11 @@ h1 {
   padding: 0.75rem;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 .gallery__options .liste {
+  width: 6.5rem;
   display: none;
   flex-direction: column;
   position: fixed;

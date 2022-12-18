@@ -31,6 +31,10 @@ export function triggerLightbox(medias, media, photographer) {
     lightboxContent.remove();
     //On incrémente l'index du média
     currIndex = currIndex += 1;
+    // if (currIndex === medias.length - 1) {
+    //   currIndex = 0;
+    // }
+    console.log(currIndex);
     //On appelle la fonction setImgOrVideo pour déterminer le média suivant.
     setImgOrVideo(currIndex, medias, photographer);
   };
@@ -45,6 +49,12 @@ export function triggerLightbox(medias, media, photographer) {
     lightboxContent.remove();
     //On décrémente l'index du média
     currIndex = currIndex -= 1;
+    // if (currIndex === 0) {
+    //   currIndex = medias.lenght - 1;
+    //   console.log(currIndex);
+    // }
+    console.log(currIndex);
+
     //On appelle la fonction setImgOrVideo pour déterminer le média précédent.
     setImgOrVideo(currIndex, medias, photographer);
   };
