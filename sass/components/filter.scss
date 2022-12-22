@@ -24,8 +24,9 @@
     width: 6.5rem;
     display: none;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     z-index: 1;
+
     button {
       max-width: 300px;
       border-radius: 5px;
@@ -33,6 +34,27 @@
       background-color: $color-primary;
       border: none;
       padding: 0.75rem;
+      &:nth-child(1)::after {
+        border-radius: 0;
+        // border-bottom: 1px solid white;
+        // content: "";
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        // height: 1px;
+        // width: 150px;
+        // border-bottom: 1px solid white;
+      }
+      &:nth-child(2) {
+        border-radius: 0;
+      }
+      &:nth-child(3) {
+        border-radius: 0 0 5px 5px;
+      }
     }
   }
+}
+
+.animation-toggle {
+  animation: translateY(2);
 }
