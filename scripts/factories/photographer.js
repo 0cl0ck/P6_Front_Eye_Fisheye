@@ -79,8 +79,10 @@ export function photographerFactory(data) {
     const toggleList = () => {
       if (sortList.style.display === "flex") {
         sortList.style.display = "none";
+        btnSelect.style.borderRadius = "5px";
       } else {
         sortList.style.display = "flex";
+        btnSelect.style.borderRadius = "5px 5px 0px 0px";
       }
     };
 

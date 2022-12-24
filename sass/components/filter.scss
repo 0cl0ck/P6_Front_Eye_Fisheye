@@ -34,22 +34,44 @@
       background-color: $color-primary;
       border: none;
       padding: 0.75rem;
-      &:nth-child(1)::after {
+      &:nth-child(1) {
         border-radius: 0;
-        // border-bottom: 1px solid white;
-        // content: "";
-        // position: absolute;
-        // left: 0;
-        // top: 0;
-        // height: 1px;
-        // width: 150px;
-        // border-bottom: 1px solid white;
+        &::after {
+          background-color: white;
+          content: "";
+          position: absolute;
+          left: 25%;
+          bottom: 0;
+          top: 0;
+          height: 1px;
+          width: 50%;
+        }
       }
       &:nth-child(2) {
         border-radius: 0;
+        &::after {
+          background-color: white;
+          content: "";
+          position: absolute;
+          left: 25%;
+          bottom: 0;
+          top: 2rem;
+          height: 1px;
+          width: 50%;
+        }
       }
       &:nth-child(3) {
         border-radius: 0 0 5px 5px;
+        &::after {
+          background-color: white;
+          content: "";
+          position: absolute;
+          left: 25%;
+          bottom: 0;
+          top: 5rem;
+          height: 1px;
+          width: 50%;
+        }
       }
     }
   }
