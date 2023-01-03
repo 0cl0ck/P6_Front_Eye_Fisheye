@@ -1,7 +1,14 @@
-// import { firstNameValue } from "../utils/firstName.js";
+import { firstNameValue } from "../utils/firstName.js";
 
-function displayModal(photographer) {
-  //   const name = photographer.name;
+const contactButton = document.querySelector(".contact_button");
+
+contactButton.addEventListener("click", displayModal);
+
+function displayModal(data, photographer) {
+  const { id, photographerId, title, likes, date, price, image, video } = data;
+  const name = photographer.name;
+  const firstName = firstNameValue(name);
+
   //   const firstName = firstNameValue(name);
   const modale = document.getElementById("contact_modal");
 
@@ -34,7 +41,7 @@ function displayModal(photographer) {
   //Attributes allocation
   contactModal.setAttribute("id", "contact_modal");
   modal.setAttribute("class", "modal");
-  h2.innerText = "Contactez moi";
+  h2.innerText = "Contactez moi" + firstName;
   img.src = "assets/icons/close.svg";
   img.setAttribute("onclick", "closeModal()");
   labelFirstName.innerText = "Prénom";
@@ -98,17 +105,17 @@ function closeModal() {
 
 // REGEX
 const form = document.getElementById("form");
-const contactButton = document.querySelector(".contact_button");
+// const contactButton = document.querySelector(".contact_button");
 const regExpNames = /^[a-zA-Z]{2,}$/;
 const regExpEmail = /^[\w-_\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const firstName = document.getElementById("firstName");
-  if (!checkFirstName(firstName)) {
-    return;
-  }
-});
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const firstName = document.getElementById("firstName");
+//   if (!checkFirstName(firstName)) {
+//     return;
+//   }
+// });
 
 function checkFirstName() {
   const firstName = document.getElementById("firstName");

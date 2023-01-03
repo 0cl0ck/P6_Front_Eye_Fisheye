@@ -83,6 +83,7 @@ export function photographerFactory(data) {
       } else {
         sortList.style.display = "flex";
         btnSelect.style.borderRadius = "5px 5px 0px 0px";
+        btnSelect.style.borderRadius = "5px";
       }
     };
 
