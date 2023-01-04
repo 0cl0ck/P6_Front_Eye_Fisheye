@@ -4,7 +4,8 @@ const contactButton = document.querySelector(".contact_button");
 
 contactButton.addEventListener("click", displayModal);
 
-function displayModal(data, photographer) {
+export function displayModal(photographer) {
+  console.log(photographer);
   const { id, photographerId, title, likes, date, price, image, video } = data;
   const name = photographer.name;
   const firstName = firstNameValue(name);

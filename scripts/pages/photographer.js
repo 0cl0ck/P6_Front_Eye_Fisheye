@@ -4,6 +4,8 @@ import { triggerLightbox } from "../utils/Lightbox.js";
 import { sortByPopularity } from "../utils/sort.js";
 import { sortByDate } from "../utils/sort.js";
 import { sortByTitle } from "../utils/sort.js";
+import { firstNameValue } from "../utils/firstName.js";
+import { displayModal } from "../utils/contactForm.js";
 
 /**
  * Retrieves data from the JSON file
