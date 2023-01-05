@@ -1,14 +1,13 @@
-import { firstNameValue } from "../utils/firstName.js";
+// import { firstNameValue } from "../utils/firstName.js";
 
 const contactButton = document.querySelector(".contact_button");
 
 contactButton.addEventListener("click", displayModal);
-
-export function displayModal(photographer) {
+function displayModal(photographer) {
   console.log(photographer);
-  const { id, photographerId, title, likes, date, price, image, video } = data;
-  const name = photographer.name;
-  const firstName = firstNameValue(name);
+  // const { id, photographerId, title, likes, date, price, image, video } = data;
+  // const name = photographer.name;
+  // const firstName = firstNameValue(name);
 
   //   const firstName = firstNameValue(name);
   const modale = document.getElementById("contact_modal");
@@ -26,7 +25,7 @@ export function displayModal(photographer) {
   const header = document.querySelector("header");
   const contactHeader = document.createElement("Header");
   const h2 = document.createElement("h2");
-  const img = document.createElement("img");
+  const imgClose = document.createElement("img");
   const form = document.createElement("form");
   const formContent = document.createElement("div");
   const labelFirstName = document.createElement("label");
@@ -42,9 +41,8 @@ export function displayModal(photographer) {
   //Attributes allocation
   contactModal.setAttribute("id", "contact_modal");
   modal.setAttribute("class", "modal");
-  h2.innerText = "Contactez moi" + firstName;
-  img.src = "assets/icons/close.svg";
-  img.setAttribute("onclick", "closeModal()");
+  h2.innerText = "Contactez moi";
+  imgClose.src = "assets/icons/close.svg";
   labelFirstName.innerText = "Prénom";
   inputFirstName.setAttribute("id", "firstName");
   labelName.innerText = "Nom";
@@ -61,7 +59,7 @@ export function displayModal(photographer) {
   modal.appendChild(contactHeader);
   modal.appendChild(form);
   contactHeader.appendChild(h2);
-  contactHeader.appendChild(img);
+  contactHeader.appendChild(imgClose);
   formContent.appendChild(labelFirstName);
   formContent.appendChild(inputFirstName);
   formContent.appendChild(labelName);
@@ -92,6 +90,7 @@ export function displayModal(photographer) {
   });
   //   main.appendChild(modal);
   //   modal.style.display = "block";
+  imgClose.addEventListener("click", closeModal);
 }
 
 function closeModal() {
