@@ -1,14 +1,16 @@
 .gallery__options {
   display: flex;
-  align-items: center;
   gap: 1rem;
   padding-left: 50px;
   margin: 2rem 0;
 
   label {
     font-weight: 600;
+    position: relative;
+    top: 8px;
   }
   &--sort {
+    align-items: center;
     width: 6.5rem;
     border-radius: 5px;
     color: $color-secondary-light;
@@ -29,6 +31,7 @@
     z-index: 1;
 
     button {
+      display: flex;
       max-width: 300px;
       border-radius: 5px;
       color: $color-secondary-light;
@@ -36,17 +39,7 @@
       border: none;
       padding: 0.75rem;
       &:nth-child(1) {
-        border-radius: 0;
-        &::after {
-          background-color: white;
-          content: "";
-          position: absolute;
-          left: 25%;
-          bottom: 0;
-          top: 0;
-          height: 1px;
-          width: 50%;
-        }
+        border-radius: 5px 5px 0 0;
       }
       &:nth-child(2) {
         border-radius: 0;
@@ -54,11 +47,11 @@
           background-color: white;
           content: "";
           position: absolute;
-          left: 25%;
+          left: 10%;
           bottom: 0;
-          top: 2.5rem;
+          top: 33%;
           height: 1px;
-          width: 50%;
+          width: 80%;
         }
       }
       &:nth-child(3) {
@@ -67,11 +60,11 @@
           background-color: white;
           content: "";
           position: absolute;
-          left: 25%;
+          left: 10%;
           bottom: 0;
-          top: 5rem;
+          top: 66%;
           height: 1px;
-          width: 50%;
+          width: 80%;
         }
       }
     }

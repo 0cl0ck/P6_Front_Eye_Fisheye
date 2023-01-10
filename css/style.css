@@ -29,15 +29,17 @@ h1 {
 
 .gallery__options {
   display: flex;
-  align-items: center;
   gap: 1rem;
   padding-left: 50px;
   margin: 2rem 0;
 }
 .gallery__options label {
   font-weight: 600;
+  position: relative;
+  top: 8px;
 }
 .gallery__options--sort {
+  align-items: center;
   width: 6.5rem;
   border-radius: 5px;
   color: hsl(0deg, 0%, 100%);
@@ -58,6 +60,7 @@ h1 {
   z-index: 1;
 }
 .gallery__options .liste button {
+  display: flex;
   max-width: 300px;
   border-radius: 5px;
   color: hsl(0deg, 0%, 100%);
@@ -66,17 +69,7 @@ h1 {
   padding: 0.75rem;
 }
 .gallery__options .liste button:nth-child(1) {
-  border-radius: 0;
-}
-.gallery__options .liste button:nth-child(1)::after {
-  background-color: white;
-  content: "";
-  position: absolute;
-  left: 25%;
-  bottom: 0;
-  top: 0;
-  height: 1px;
-  width: 50%;
+  border-radius: 5px 5px 0 0;
 }
 .gallery__options .liste button:nth-child(2) {
   border-radius: 0;
@@ -85,11 +78,11 @@ h1 {
   background-color: white;
   content: "";
   position: absolute;
-  left: 25%;
+  left: 10%;
   bottom: 0;
-  top: 2.5rem;
+  top: 33%;
   height: 1px;
-  width: 50%;
+  width: 80%;
 }
 .gallery__options .liste button:nth-child(3) {
   border-radius: 0 0 5px 5px;
@@ -98,11 +91,11 @@ h1 {
   background-color: white;
   content: "";
   position: absolute;
-  left: 25%;
+  left: 10%;
   bottom: 0;
-  top: 5rem;
+  top: 66%;
   height: 1px;
-  width: 50%;
+  width: 80%;
 }
 
 .animation-toggle {
