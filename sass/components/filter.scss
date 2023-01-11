@@ -40,6 +40,9 @@
       padding: 0.75rem;
       &:nth-child(1) {
         border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
       }
       &:nth-child(2) {
         border-radius: 0;

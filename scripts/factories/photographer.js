@@ -57,7 +57,7 @@ export function photographerFactory(data) {
     label.innerText = "Trier par";
 
     popularite.value = "popularite";
-    popularite.innerText = "Popularité";
+    popularite.innerHTML = "Popularité" + `<i class="fa-solid fa-chevron-up">`;
 
     date.value = "date";
     date.innerText = "Date";
