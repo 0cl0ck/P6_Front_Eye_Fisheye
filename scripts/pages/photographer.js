@@ -5,7 +5,7 @@ import { sortByPopularity } from "../utils/sort.js";
 import { sortByDate } from "../utils/sort.js";
 import { sortByTitle } from "../utils/sort.js";
 // import { firstNameValue } from "../utils/firstName.js";
-// import { displayModal } from "../utils/contactForm.js";
+import { displayModal } from "../utils/contactForm.js";
 
 /**
  * Retrieves data from the JSON file
@@ -171,6 +171,9 @@ async function init() {
   const photographer = await getPhotographer(data);
   displayPhotographer(photographer);
   displayGalleryOptions(photographer);
+  //Affichage de la modale de contact
+  const contactButton = document.querySelector(".contact_button");
+  contactButton.addEventListener("click", displayModal(photographer));
 
   // Affichage de la galerie de médias
   let medias = await getMedia(data);
@@ -208,7 +211,6 @@ async function init() {
         break;
     }
   });
-
   displayMedia(medias, photographer);
 
   // Affichage du total de likes

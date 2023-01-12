@@ -1,13 +1,9 @@
-// import { firstNameValue } from "../utils/firstName.js";
-
 const contactButton = document.querySelector(".contact_button");
 
 contactButton.addEventListener("click", displayModal);
-function displayModal(photographer) {
+export function displayModal(photographer) {
   console.log(photographer);
-  // const { id, photographerId, title, likes, date, price, image, video } = data;
-  // const name = photographer.name;
-  // const firstName = firstNameValue(name);
+  const name = photographer.name;
 
   //   const firstName = firstNameValue(name);
   const modale = document.getElementById("contact_modal");
@@ -23,6 +19,7 @@ function displayModal(photographer) {
   const contactModal = document.createElement("div");
   const modal = document.createElement("div");
   const header = document.querySelector("header");
+  const headerLink = document.querySelector(".logo");
   const contactHeader = document.createElement("Header");
   const h2 = document.createElement("h2");
   const imgClose = document.createElement("img");
@@ -41,7 +38,7 @@ function displayModal(photographer) {
   //Attributes allocation
   contactModal.setAttribute("id", "contact_modal");
   modal.setAttribute("class", "modal");
-  h2.innerText = "Contactez moi";
+  h2.innerText = "Contactez moi" + name;
   imgClose.src = "assets/icons/close.svg";
   labelFirstName.innerText = "Prénom";
   inputFirstName.setAttribute("id", "firstName");
@@ -78,6 +75,7 @@ function displayModal(photographer) {
   contactModal.style.top = "20%";
   contactModal.style.margin = "-150px 0 0 -200px";
   modal.style.width = "550px";
+  headerLink.style.opacity = "0.5";
   main.style.opacity = "0.5";
   contactModal.style.zIndex = "2";
 
@@ -94,10 +92,13 @@ function displayModal(photographer) {
 }
 
 function closeModal() {
+  const headerLink = document.querySelector(".logo");
   const modal = document.getElementById("contact_modal");
 
   modal.style.display = "none";
   main.style.opacity = "1";
+  headerLink.style.opacity = "1";
+
   // location.reload();
 }
 
